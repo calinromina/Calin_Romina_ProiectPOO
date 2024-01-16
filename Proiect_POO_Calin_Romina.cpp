@@ -13,9 +13,8 @@ private:
 	string preferinte;
 
 
-	
 public:
-	Cititor() : id(0)  ///constructor fara param
+	Cititor() : id(0)  ///constructor fara parametrii
 	{
 		this->numeCititor = new char[strlen("anonim") + 1];
 		strcpy(this->numeCititor, "anonim");
@@ -68,10 +67,10 @@ public:
 		if (this != &c)
 		{
 
-			//if (this->preferinte != NULL)
-			//{
-			//	delete[]this->preferinte;
-			//}
+			if (this->numeCititor != NULL)
+			{
+				delete[]numeCititor;
+			}
 			this->numeCititor = new char[strlen(c.numeCititor) + 1];
 			strcpy(this->numeCititor, c.numeCititor);
 			this->varsta = c.varsta;
@@ -365,7 +364,9 @@ public:
 		return this->recenzii;
 	}
 
-	//OPERATORUL += INTRE OBJ OBJ
+	//OPERATORI
+
+	//1.OPERATORUL += INTRE OBJ OBJ
 	Carte& operator += (Carte cr)
 	{
 		Carte copie = *this;
@@ -566,16 +567,21 @@ public:
 		return this->valabilitate;
 	}
 
+	//OPERATORI
+
+	//1.OPERATORUL <
 	bool operator<(const Abonament& a) {
 		return this->durataAbonament < a.durataAbonament;
 	}
 
+	//2.OPERATORUL INDEX
 	float& operator[] (int poz)
 	{
 		if (poz >= 0 && poz < this->durataAbonament)
 			return this->cost[poz];
 	}
 
+	//3.OPERATORUL ==
 	bool operator ==(Abonament a)
 	{
 		return this->durataAbonament == a.durataAbonament;
@@ -617,13 +623,13 @@ int main()
 	cout << "Carte2:\n" << carte2 << endl << endl;
 	// cin >> carte2; 
 
-		cout << "Constructorul fara parametrii - clasa Abonament:" << endl;
+	cout << "Constructorul fara parametrii - clasa Abonament:" << endl;
 	Abonament a1;
 	cout << "Abonament 1:\n" << a1 << endl << endl;
 	cout << "Testare operator de citire: " << endl;
 	// cin >> a1; 
 
-		cout << "Constructorul cu toti parametrii - clasa Abonament:" << endl;
+	cout << "Constructorul cu toti parametrii - clasa Abonament:" << endl;
 	float* costAbonament;
 	costAbonament = new float[3]{ 22.5f, 30.0f, 45.7f };
 	Abonament a3(2, "Radu Andreea", 3, true, costAbonament);
