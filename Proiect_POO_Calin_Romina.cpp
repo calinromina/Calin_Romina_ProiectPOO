@@ -13,7 +13,7 @@ private:
 	string preferinte;
 
 
-	/// operator ==; [], operator ++ post
+	
 public:
 	Cititor() : id(0)  ///constructor fara param
 	{
@@ -181,8 +181,6 @@ private:
 	int numarCititori;
 	int* recenzii;
 
-
-	//operator +=; operator --; operator +
 
 public:
 	Carte() : id(1)
@@ -408,8 +406,6 @@ public:
 int Carte::secolCarte = 21;
 
 
-//operator >; operator <; operator ++ pre 
-
 class Abonament
 {
 private:
@@ -569,16 +565,6 @@ public:
 	{
 		return this->valabilitate;
 	}
-
-
-	//static void setTipServiciu(string tip)
-	//{
-	//	Abonament::tipServiciu = tip;
-	//}
-	//static string getTipServiciu()
-	//{
-	//	return Abonament::tipServiciu;
-	//}
 
 	bool operator<(const Abonament& a) {
 		return this->durataAbonament < a.durataAbonament;
